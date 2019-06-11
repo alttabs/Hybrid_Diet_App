@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'brasil', //antigo home
+    path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
   {
