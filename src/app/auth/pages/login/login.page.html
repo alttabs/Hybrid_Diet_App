@@ -9,8 +9,7 @@
     <ion-icon name="done-all" color="primary" class="icon-7em"></ion-icon>
   </h1>
 
-  <!-- formulario configurado no ts authForm -->
-  <form [formGroup]="authForm" (submit)="onSubmit()">
+  <form [formGroup]="authForm" (submit)="onSubmit(authProviders.Email)">
 
     <ng-container *ngIf="!configs.isSignIn">
         <ion-item>
@@ -51,7 +50,7 @@
   </form>
 
   <ion-button expand="block" fill="clear" (click)="changeAuthAction()">{{ configs.actionChange}}</ion-button>
-  <ion-button expand="block">
+  <ion-button expand="block" (click)="onSubmit(authProviders.Facebook)">
      <ion-icon name="logo-facebook"></ion-icon>
      Login com Facebook
   </ion-button>
