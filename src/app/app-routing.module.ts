@@ -7,11 +7,10 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  { path: 'login', loadChildren: './auth/auth.module#AuthModule' },  { path: 'dados', loadChildren: './dados/dados.module#DadosPageModule' }
+  
+  { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
+  { path: 'dados', loadChildren: './dados/dados.module#DadosPageModule' },
+  { path: 'calculo', loadChildren: './calculo/calculo.module#CalculoPageModule' }
 
 ];
 
