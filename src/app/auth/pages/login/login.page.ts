@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
+import { OverlayService } from 'src/app/core/services/overlay.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss']
 })
-
 export class LoginPage implements OnInit {
   authForm: FormGroup;
   authProviders = AuthProvider;
@@ -19,7 +19,11 @@ export class LoginPage implements OnInit {
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {}
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private overlayService: OverlayService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -41,31 +45,37 @@ export class LoginPage implements OnInit {
   }
 
   get password(): FormControl {
-    return<FormControl>this.authForm.get('password');
+    return <FormControl>this.authForm.get('password');
   }
 
   // alternancia login page form
   changeAuthAction(): void {
     this.configs.isSignIn = !this.configs.isSignIn;
-    const{ isSignIn } = this.configs;
+    const { isSignIn } = this.configs;
     this.configs.action = isSignIn ? 'Login' : 'Criar';
     this.configs.actionChange = isSignIn ? 'Criar Conta' : 'Ja tenho Conta';
     !isSignIn
-    ? this.authForm.addControl('name', this.nameControl)
-    : this.authForm.removeControl('name');
+      ? this.authForm.addControl('name', this.nameControl)
+      : this.authForm.removeControl('name');
   }
 
   async onSubmit(provider: AuthProvider): Promise<void> {
+    const loading = await this.overlayService.loading();
     try {
       const credentials = await this.authService.authenticate({
         inSignIn: this.configs.isSignIn,
         user: this.authForm.value,
         provider
-      } );
+      });
       console.log('Authenticated: ', credentials);
-      console.log('Redirectin...');
+      console.log('Redirecting...');
     } catch (e) {
       console.log('Auth error: ', e);
+      this.overlayService.toast({
+        message: e.message
+      });
+    } finally {
+      loading.dismiss();
     }
   }
 }
