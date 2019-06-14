@@ -34,7 +34,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 #environments
-src\environments\environment.ts 
+src/environments/environment.ts 
 
 ### Angular ###
 ## Angular ##
