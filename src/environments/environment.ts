@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCou5AxvaTOOT-NxzZBs0RSBrLhVznok3U",
+    apiKey: "AKY_KEY_HERE",
     authDomain: "ionic-diet-app.firebaseapp.com",
     databaseURL: "https://ionic-diet-app.firebaseio.com",
     projectId: "ionic-diet-app",
