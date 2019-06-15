@@ -16,7 +16,7 @@ export class DadosPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private overlayService: OverlayService,
-    //private fb: FormBuilder
+    // private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class DadosPage implements OnInit {
     try {
       this.navCtrl.navigateForward('/calculo');
       this.overlayService.toast({
-        //message: this.cabeca;
+        // message: this.cabeca;
       });
     } catch (e) {
       this.overlayService.toast({
