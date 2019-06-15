@@ -4,23 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h1>
-    Peso
-  </h1>
-  <ion-textarea name="peso" type="number" placeholder="Peso(kg)" maxlength="3"> </ion-textarea>
-  <h1>
-    Altura
-  </h1>
-  <ion-textarea name="altura" type="number" placeholder="Altura(cm)" maxlength="3"> </ion-textarea>
-  <h1>
-    Idade
-  </h1>
-  <ion-textarea name="idade" type="number" placeholder="Idade" maxlength="2"> </ion-textarea>
-
-  <ion-label name="cabeca"> </ion-label>
-  <ion-button expand="block" (click)="onClick()">
-    <ion-icon name="ios-ice-cream"></ion-icon>
-    Próximo
-  </ion-button>
-</ion-content>
+<form #form = "ngForm">
+  <div class = "form-group">
+    <label>Peso</label>
+    <input name = "Peso" #Peso="ngModel" [(ngModel)]="service.formData.Peso" class = "form-control">
+  </div>
+  <div class="form-group">
+    <button type = "button" value= "SUBMIT" class = "btn btn-lg btn-block">Submit</button>
+  </div>
+</form>
