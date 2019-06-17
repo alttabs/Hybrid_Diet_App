@@ -6,7 +6,7 @@
 </ion-header>
 -->
 <!--
-<form class="form-horizontal" >
+<form class="form-horizontal">
   <div class="form-group">
     <div class="controlPeso">
       <label class="control-label">Peso</label>
@@ -19,51 +19,17 @@
   <div class="form-group">
     <button type="button" class="btn btn-primary">Submit</button>
   </div>
-</form>-->
-
-<form [formGroup]="formulario" (ngSubmit)="onClick()">
-  
-  <div class="form-group">
-    <label for="nome">Nome</label>
-    <input type="text" class="form-control" name="peso" id="peso" required />
-  </div>
-
-  <div class="form-group">
-    <label for="tipo">Tipo</label>
-    <select class="form-control" name="tipo" id="tipo">
-      <option value="1">Pessoa física</option>
-      <option value="2">Pessoa jurídica</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Gênero</label>
-
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="genero" id="masculino" [value]="1" />
-      <label class="form-check-label" for="masculino">Masculino</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="genero" id="feminino" [value]="2" />
-      <label class="form-check-label" for="feminino">Feminino</label>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="dataNascimento">Data de nascimento</label>
-    <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" />
-  </div>
-
-  <div class="form-group">
-    <label for="observacao">Observação</label>
-    <textarea class="form-control" rows="3" name="observacao" id="observacao"></textarea>
-  </div>
-
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="inativo" id="inativo" />
-    <label class="form-check-label" for="inativo">Inativo</label>
-  </div>
-
-  <input type="submit" class="btn btn-primary mt-4" value="Salvar" />
-  <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
 </form>
+-->
+
+<div>
+  <form name="formulario" (ngSubmit)="onClick()">
+    <div class="form-group">
+      <label for="peso">Peso</label>
+      <input type="text" class="form-control" name="peso" id="peso" required />
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-4" value="Salvar" />
+    <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
+  </form>
+</div>

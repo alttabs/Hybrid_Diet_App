@@ -14,7 +14,7 @@ describe('AppComponent', () => {
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
     platformReadySpy = Promise.resolve();
-    platformSpy = jasmine.acreateSpyObj('Platform', { ready: platformReadySpy });
+    platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],

@@ -8,7 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { DadosPage } from './dados.page';
 import { FormularioComponent } from '../../clientes/formulario/formulario.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    FormularioComponent,
     CommonModule,
     FormsModule,
     IonicModule,

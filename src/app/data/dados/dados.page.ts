@@ -12,7 +12,7 @@ import { Datas } from '../shared/datas';
 export class DadosPage implements OnInit {
   formulario: FormGroup;
   cabeca: number;
-
+  peso: '';
 
   constructor(
     private navCtrl: NavController,
@@ -30,17 +30,17 @@ export class DadosPage implements OnInit {
 
   createForm(data: Datas) {
     this.formulario = this.fb.group({
-      peso: [data.peso],
+      c: [data.peso]
     });
   }
-
 
   async onClick(): Promise<void> {
     const loading = await this.overlayService.loading();
     try {
       this.navCtrl.navigateForward('/calculo');
+      console.log();
       this.overlayService.toast({
-        // message: this.cabeca;
+        // message: this.;
       });
     } catch (e) {
       this.overlayService.toast({
@@ -48,7 +48,6 @@ export class DadosPage implements OnInit {
       });
     } finally {
       loading.dismiss();
-
     }
   }
 }
