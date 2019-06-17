@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { OverlayService } from '../core/services/overlay.service';
+import { OverlayService } from '../../core/services/overlay.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Datas } from '../shared/datas';
 
 @Component({
   selector: 'app-dados',
@@ -16,17 +17,21 @@ export class DadosPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private overlayService: OverlayService,
-    // private fb: FormBuilder
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
-    this.formulario = new FormGroup({
+    /*this.formulario = new FormGroup({
       peso: new FormControl(''),
-    });
-
-    /*this.formulario = this.fb.group({
-      peso: [''],
     });*/
+
+    this.createForm(new Datas());
+  }
+
+  createForm(data: Datas) {
+    this.formulario = this.fb.group({
+      peso: [data.peso],
+    });
   }
 
 

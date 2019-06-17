@@ -9,8 +9,10 @@ const routes: Routes = [
   },
 
   { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
-  { path: 'dados', loadChildren: './dados/dados.module#DadosPageModule' },
+  { path: 'dados', loadChildren: './data/dados/dados.module#DadosPageModule' },
   { path: 'calculo', loadChildren: './calculo/calculo.module#CalculoPageModule' }
+
+  // { path: 'formulario', loadChildren: './clientes/formulario.module#FormularioPageModule' }
 ];
 
 @NgModule({
